@@ -16,6 +16,7 @@
 // Runtime state (model, mic, voice, tts mode) persisted via api.kv.
 //
 // Commands:
+//   /stt-auto (leader+a) - toggle hands-free auto voice input (VAD)
 //   /stt-record (ctrl+r)  - start/stop recording + transcribe
 //   /stt-submit (leader+r)- stop recording + transcribe + submit
 //   /stt-stop             - cancel recording
@@ -25,6 +26,11 @@
 //   /tts-mode (leader+v) - toggle auto TTS on/off
 //   /tts-stop (escape)   - stop playback
 //   /tts-voice           - select TTS voice
+//
+// Options:
+//   autoMode: "on"   - start hands-free mode automatically on launch
+//   autoSubmit: bool - in auto mode, submit the prompt instead of appending
+//                      (default: true)
 
 import fs from "node:fs";
 import os from "node:os";
